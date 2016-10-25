@@ -17,21 +17,26 @@
 
     <!-- Add content here -->
     <div id="app">
+        <div class="swd__header">
         <h1>Star Wars Database</h1>
         <p>Let's get some Star Wars Characters</p>
-        <hr>
+        </div>
 
-        <starwars-character-selection></starwars-character-selection>
+        <div class="wrapper">
+            <div class="select">
+                <starwars-character-selection></starwars-character-selection>
+            </div>
 
-        <div v-if="character">
-            <h1>{{ character.name }}</h1>
-            <p>Some stats about {{ character.name }}</p>
-            <ul>
-                <li><strong>Height:</strong>{{ character.height }}</li>
-                <li><strong>Mass: </strong>{{ character.mass }}</li>
-                <li><strong>Hair Colour: </strong>{{ character.hair_color }}</li>
-                <li><strong>Birth Year: </strong>{{ character.birth_year }}</li>
-            </ul>
+            <div class="swd__character-information" v-if="character">
+                <h1>{{ character.name }}</h1>
+                <p>Some stats about {{ character.name }}</p>
+                <ul>
+                    <li><strong>Height:</strong>{{ character.height }}</li>
+                    <li><strong>Mass: </strong>{{ character.mass }}</li>
+                    <li><strong>Hair Colour: </strong>{{ character.hair_color }}</li>
+                    <li><strong>Birth Year: </strong>{{ character.birth_year }}</li>
+                </ul>
+            </div>
         </div>
     </div>
 
