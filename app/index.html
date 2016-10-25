@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Star Wars Database</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>
+
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+
+    <!-- Add content here -->
+    <div id="app">
+        <h1>Star Wars Database</h1>
+        <p>Let's get some Star Wars Characters</p>
+        <hr>
+
+        <starwars-character-selection></starwars-character-selection>
+
+        <div v-if="character">
+            <h1>{{ character.name }}</h1>
+            <p>Some stats about {{ character.name }}</p>
+            <ul>
+                <li><strong>Height:</strong>{{ character.height }}</li>
+                <li><strong>Mass: </strong>{{ character.mass }}</li>
+                <li><strong>Hair Colour: </strong>{{ character.hair_color }}</li>
+                <li><strong>Birth Year: </strong>{{ character.birth_year }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>
