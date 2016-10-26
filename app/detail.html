@@ -33,32 +33,28 @@
                     <h1>{{ character.name }}</h1>
                     <p>Some stats about {{ character.name }}</p>
                     <ul>
-                        <li><strong>Height: </strong>{{ character.height }}</li>
-                        <li><strong>Mass: </strong>{{ character.mass }} </li>
-                        <li><strong>Hair Colour: </strong>{{ character.hair_color }}</li>
-                        <li><strong>Birth Year: </strong>{{ character.birth_year }}</li>
-                        <li><strong>Homeworld: </strong>{{ character.homeworld }}</li>
+                        <li><strong>Height:</strong>{{ character.height }}</li>
+                        <li><strong>Mass: </strong>{{ character.mass }}</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="movie__block">
+            <div class="character__block">
                 <div class="select">
                     <starwars-character-selection data-url="http://swapi.co/api/films/?format=json"></starwars-character-selection>
                 </div>
 
                 <div class="swd__character-information" v-if="character">
-                    <h1>{{ character.title }}</h1>
-                    <p>Some information about {{ character.title }}</p>
+                    <h1>{{ character.name }}</h1>
+                    <p>Some stats about {{ character.name }}</p>
                     <ul>
-                        <li><strong>Director: </strong>{{ character.director }}</li>
-                        <li><strong>Producer: </strong>{{ character.producer }}</li>
-                        <li><strong>Release: </strong>{{ character.release_date }}</li>
-                        <li><strong>Episode: </strong>{{ character.episode_id }}</li>
+                        <li><strong>Height:</strong>{{ character.height }}</li>
+                        <li><strong>Mass: </strong>{{ character.mass }}</li>
                     </ul>
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

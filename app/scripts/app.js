@@ -1,6 +1,7 @@
 let bus = new Vue();
 
 Vue.component('starwars-character-selection', {
+    props: ['dataUrl'],
     data: function() {
         return {
             characters: [],
@@ -21,8 +22,7 @@ Vue.component('starwars-character-selection', {
         retrieveCharacters: function() {
             var xhr = new XMLHttpRequest();
             var self = this;
-            xhr.open('GET', 'http://swapi.co/api/people/?format=json');
-            xhr.setRequestHeader('content-Type', 'application/json');
+            xhr.open('GET', this.dataUrl);
             xhr.onload = function() {
                 var data = JSON.parse(xhr.responseText);
                 self.characters = data.results;
