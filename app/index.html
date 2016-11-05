@@ -24,8 +24,27 @@
         </div>
 
         <div class="wrapper">
+
+            <div class="information__block">
+
+                <div class="information__block-about">
+                    <h2>About</h2>
+                    <p>
+                        This small database is made with Vue.js and information from the Star Wars API "SWAPI", that is world's first quanitified and programmatically-accessible data source for all the data from the Star Wars canon universe!
+                    </p>
+                </div>
+                <div class="information__block-abbreviations">
+                    <h2>Abbreviations</h2>
+                    <ul>
+                        <li>Before the Battle of Yavin</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
             <div class="character__block">
-                <h3>Character information</h3>
+                <h1>Character information</h1>
                 <div class="select">
                     <!-- Template -->
                     <starwars-character-selection data-url="http://swapi.co/api/people/?format=json"></starwars-character-selection>
@@ -45,7 +64,7 @@
             </div>
 
             <div class="movie__block">
-                <h3>Movie information</h3>
+                <h1>Movie information</h1>
                 <div class="select">
                     <!-- Template -->
                     <starwars-movie-selection data-url="http://swapi.co/api/films/?format=json"></starwars-movie-selection>
@@ -63,7 +82,12 @@
                 </div>
             </div>
         </div>
+
+        <div class="footer">
+            <p>Made by Daniel Malmros - Get project on <a href="https://github.com/danielmalmros" target="_blank">Github</a></p>
+        </div>
     </div>
+
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

@@ -1,5 +1,3 @@
-let bus = new Vue();
-
 Vue.component('starwars-character-selection', {
     props: ['dataUrl'],
     data: function() {
@@ -74,7 +72,8 @@ Vue.component('starwars-movie-selection', {
     </select>'
 });
 
-// Add your JavaScript here!
+let bus = new Vue();
+
 var app = new Vue({
     el: '#app',
     data: {

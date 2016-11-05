@@ -1,5 +1,3 @@
-let bus = new Vue();
-
 Vue.component('starwars-character-selection', {
     props: ['dataUrl'],
     data: function() {

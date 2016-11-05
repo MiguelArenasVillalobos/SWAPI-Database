@@ -1,4 +1,5 @@
-// Add your JavaScript here!
+let bus = new Vue();
+
 var app = new Vue({
     el: '#app',
     data: {
