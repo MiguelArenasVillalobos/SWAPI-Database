@@ -2,7 +2,8 @@
 var app = new Vue({
     el: '#app',
     data: {
-        character: null
+        character: null,
+        movie: null
     },
     computed: {},
     watch: {},
@@ -12,6 +13,11 @@ var app = new Vue({
         bus.$on('starwars-character-selection', function(character) {
             self.character = character;
             console.log('Vue-instance respond!', self.character);
+        });
+
+        bus.$on('starwars-movie-selection', function(movie) {
+            self.movie = movie;
+            console.log('Vue-instance respond!', self.movie);
         });
     },
     events: {},

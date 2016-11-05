@@ -30,5 +30,9 @@ Vue.component('starwars-character-selection', {
             xhr.send();
         }
     },
-    template: '<select v-model="character"><option v-for="person in characters" v-bind:value="person">{{ person.name }}</option></select>'
+    template: '<select v-model="character">\
+    <option v-for="person in characters" v-bind:value="person">\
+    {{ person.name }}\
+    </option>\
+    </select>'
 });

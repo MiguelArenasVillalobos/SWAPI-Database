@@ -20,11 +20,12 @@
     <div id="app">
         <div class="swd__header">
             <h1>Star Wars Database</h1>
-            <p>Let's get some Star Wars Characters</p>
+            <p>Let's get some Star Wars Information</p>
         </div>
 
         <div class="wrapper">
             <div class="character__block">
+                <h3>Character information</h3>
                 <div class="select">
                     <!-- Template -->
                     <starwars-character-selection data-url="http://swapi.co/api/people/?format=json"></starwars-character-selection>
@@ -44,25 +45,26 @@
             </div>
 
             <div class="movie__block">
+                <h3>Movie information</h3>
                 <div class="select">
                     <!-- Template -->
-                    <starwars-character-selection data-url="http://swapi.co/api/films/?format=json"></starwars-character-selection>
+                    <starwars-movie-selection data-url="http://swapi.co/api/films/?format=json"></starwars-movie-selection>
                 </div>
 
-                <div class="swd__character-information" v-if="character">
-                    <h1>{{ character.title }}</h1>
-                    <p>Some information about {{ character.title }}</p>
+                <div class="swd__character-information" v-if="movie">
+                    <h1>{{ movie.title }}</h1>
+                    <p>Some information about {{ movie.title }}</p>
                     <ul>
-                        <li><strong>Director: </strong>{{ character.director }}</li>
-                        <li><strong>Producer: </strong>{{ character.producer }}</li>
-                        <li><strong>Release: </strong>{{ character.release_date }}</li>
-                        <li><strong>Episode: </strong>{{ character.episode_id }}</li>
+                        <li><strong>Director: </strong>{{ movie.director }}</li>
+                        <li><strong>Producer: </strong>{{ movie.producer }}</li>
+                        <li><strong>Release: </strong>{{ movie.release_date }}</li>
+                        <li><strong>Episode: </strong>{{ movie.episode_id }}</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
         (function(b, o, i, l, e, r) {
