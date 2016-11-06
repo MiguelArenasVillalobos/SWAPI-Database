@@ -33,18 +33,19 @@
                         This small database is made with Vue.js and information from the Star Wars API "SWAPI", that is world's first quanitified and programmatically-accessible data source for all the data from the Star Wars canon universe!
                     </p>
                 </div>
-                <div class="information__block-abbreviations">
-                    <h2>Abbreviations</h2>
+                <div class="information__block-explanations">
+                    <h2>Explanations</h2>
                     <ul>
-                        <li>Before the Battle of Yavin</li>
+                        <li>BBY: Before the Battle of Yavin <span class="read-more"><a href="http://starwars.wikia.com/wiki/Galactic_Standard_Calendar" target="_blank">Read more</a></span></li>
+                        <li>Mass: Weight in kg</li>
                     </ul>
 
                 </div>
 
             </div>
 
-            <div class="character__block">
-                <h1>Character information</h1>
+            <div class="character__block block__separator">
+                <h2>Character information</h2>
                 <div class="select">
                     <!-- Template -->
                     <starwars-character-selection data-url="http://swapi.co/api/people/?format=json"></starwars-character-selection>
@@ -63,8 +64,8 @@
                 </div>
             </div>
 
-            <div class="movie__block">
-                <h1>Movie information</h1>
+            <div class="movie__block block__separator">
+                <h2>Movie information</h2>
                 <div class="select">
                     <!-- Template -->
                     <starwars-movie-selection data-url="http://swapi.co/api/films/?format=json"></starwars-movie-selection>
@@ -81,11 +82,52 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="species__block block__separator">
+                <h2>Species information</h2>
+                <div class="select">
+                    <!-- Template -->
+                    <starwars-species-selection data-url="http://swapi.co/api/species/?format=json"></starwars-species-selection>
+                </div>
+
+                <div class="swd__character-information" v-if="species">
+                    <h1>{{ species.name }}</h1>
+                    <p>Some information about {{ species.name }}</p>
+                    <ul>
+                        <li><strong>Language: </strong>{{ species.language }}</li>
+                        <li><strong>Average height: </strong>{{ species.average_height }}</li>
+                        <li><strong>Average lifespan: </strong>{{ species.average_lifespan }}</li>
+                        <li><strong>Designation: </strong>{{ species.designation }}</li>
+                        <li><strong>Classification: </strong>{{ species.classification }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="planet__block block__separator">
+                <h2>Planet information</h2>
+                <div class="select">
+                    <!-- Template -->
+                    <starwars-planet-selection data-url="http://swapi.co/api/planets/?format=json"></starwars-planet-selection>
+                </div>
+
+                <div class="swd__character-information" v-if="planet">
+                    <h1>{{ planet.name }}</h1>
+                    <p>Some information about {{ planet.name }}</p>
+                    <ul>
+                        <li><strong>Climate: </strong>{{ planet.climate }}</li>
+                        <li><strong>Diameter: </strong>{{ planet.diameter }}</li>
+                        <li><strong>Gravity: </strong>{{ planet.gravity }}</li>
+                        <li><strong>Rotation period: </strong>{{ planet.rotation_period }}</li>
+                        <li><strong>Orbit period: </strong>{{ planet.orbital_period }}</li>
+                        <li><strong>Population: </strong>{{ planet.population }}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
-        <div class="footer">
+        <!-- <div class="footer">
             <p>Made by Daniel Malmros - Get project on <a href="https://github.com/danielmalmros" target="_blank">Github</a></p>
-        </div>
+        </div> -->
     </div>
 
 
