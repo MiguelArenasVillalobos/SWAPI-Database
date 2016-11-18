@@ -1,29 +1,155 @@
 <!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Website Title</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
 
-        <link rel="stylesheet" href="styles/styles.css">
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Star Wars Database</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://swgawakening.com/favicon.ico" rel="icon" type="image/x-icon" />
 
-        <!-- Add your site or application content here -->
-        <p>Content</p>
+    <script src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>
-        
-        <script src="scripts/app.js"></script>
-    </body>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+
+    <!-- Add content here -->
+    <div id="app">
+        <div class="swd__header">
+            <h1>Star Wars Database</h1>
+            <p>Let's get some Star Wars Information</p>
+        </div>
+
+        <div class="wrapper">
+
+            <div class="information__block">
+
+                <div class="information__block-about">
+                    <h2>About</h2>
+                    <p>
+                        This small database is made with Vue.js and information from the Star Wars API "SWAPI", that is world's first quanitified and programmatically-accessible data source for all the data from the Star Wars canon universe!
+                    </p>
+                </div>
+                <div class="information__block-explanations">
+                    <h2>Explanations</h2>
+                    <ul>
+                        <li>BBY: Before the Battle of Yavin <span class="read-more"><a href="http://starwars.wikia.com/wiki/Galactic_Standard_Calendar" target="_blank">Read more</a></span></li>
+                        <li>Mass: Weight in kg</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="character__block block__separator">
+                <h2>Character information</h2>
+                <div class="select">
+                    <!-- Template -->
+                    <starwars-character-selection data-url="http://swapi.co/api/people/?format=json"></starwars-character-selection>
+                </div>
+
+                <div class="swd__character-information" v-if="character">
+                    <h1>{{ character.name }}</h1>
+                    <p>Some stats about {{ character.name }}</p>
+                    <ul>
+                        <li><strong>Height: </strong>{{ character.height }}</li>
+                        <li><strong>Mass: </strong>{{ character.mass }} </li>
+                        <li><strong>Hair Colour: </strong>{{ character.hair_color }}</li>
+                        <li><strong>Birth Year: </strong>{{ character.birth_year }}</li>
+                        <li><strong>Homeworld: </strong>{{ character.homeworld }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="movie__block block__separator">
+                <h2>Movie information</h2>
+                <div class="select">
+                    <!-- Template -->
+                    <starwars-movie-selection data-url="http://swapi.co/api/films/?format=json"></starwars-movie-selection>
+                </div>
+
+                <div class="swd__character-information" v-if="movie">
+                    <h1>{{ movie.title }}</h1>
+                    <p>Some information about {{ movie.title }}</p>
+                    <ul>
+                        <li><strong>Director: </strong>{{ movie.director }}</li>
+                        <li><strong>Producer: </strong>{{ movie.producer }}</li>
+                        <li><strong>Release: </strong>{{ movie.release_date }}</li>
+                        <li><strong>Episode: </strong>{{ movie.episode_id }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="species__block block__separator">
+                <h2>Species information</h2>
+                <div class="select">
+                    <!-- Template -->
+                    <starwars-species-selection data-url="http://swapi.co/api/species/?format=json"></starwars-species-selection>
+                </div>
+
+                <div class="swd__character-information" v-if="species">
+                    <h1>{{ species.name }}</h1>
+                    <p>Some information about {{ species.name }}</p>
+                    <ul>
+                        <li><strong>Language: </strong>{{ species.language }}</li>
+                        <li><strong>Average height: </strong>{{ species.average_height }}</li>
+                        <li><strong>Average lifespan: </strong>{{ species.average_lifespan }}</li>
+                        <li><strong>Designation: </strong>{{ species.designation }}</li>
+                        <li><strong>Classification: </strong>{{ species.classification }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="planet__block block__separator">
+                <h2>Planet information</h2>
+                <div class="select">
+                    <!-- Template -->
+                    <starwars-planet-selection data-url="http://swapi.co/api/planets/?format=json"></starwars-planet-selection>
+                </div>
+
+                <div class="swd__character-information" v-if="planet">
+                    <h1>{{ planet.name }}</h1>
+                    <p>Some information about {{ planet.name }}</p>
+                    <ul>
+                        <li><strong>Climate: </strong>{{ planet.climate }}</li>
+                        <li><strong>Diameter: </strong>{{ planet.diameter }}</li>
+                        <li><strong>Gravity: </strong>{{ planet.gravity }}</li>
+                        <li><strong>Rotation period: </strong>{{ planet.rotation_period }}</li>
+                        <li><strong>Orbit period: </strong>{{ planet.orbital_period }}</li>
+                        <li><strong>Population: </strong>{{ planet.population }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="footer">
+            <p>Made by Daniel Malmros - Get project on <a href="https://github.com/danielmalmros" target="_blank">Github</a></p>
+        </div> -->
+    </div>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <script src="scripts/app.js"></script>
+</body>
+
 </html>
